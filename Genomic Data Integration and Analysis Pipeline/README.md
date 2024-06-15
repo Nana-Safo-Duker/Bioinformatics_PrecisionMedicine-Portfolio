@@ -301,7 +301,7 @@ For questions or suggestions, please open an issue in the repository.
 
 ---
 
-**Last Updated**: 2024
+**Last Updated**: June 2024
 
 **Version**: 1.0.0
 
