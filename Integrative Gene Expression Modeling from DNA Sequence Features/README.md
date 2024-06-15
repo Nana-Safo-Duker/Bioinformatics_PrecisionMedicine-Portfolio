@@ -300,7 +300,7 @@ For questions or issues, please open an issue on GitHub.
 
 ---
 
-**Last Updated**: 2025
+**Last Updated**: June 2024
 
 **Project Status**: Active Development
 
