@@ -5,8 +5,15 @@ library(dplyr)
 library(ggplot2)
 library(stringr)
 
+# Determine correct data path regardless of whether the script is
+# run from the project root or from scripts/r/
+data_path <- "data/genomics_data.csv"
+if (!file.exists(data_path)) {
+  data_path <- "../../data/genomics_data.csv"
+}
+
 # Load data
-df <- read.csv("../data/genomics_data.csv", stringsAsFactors = FALSE)
+df <- read.csv(data_path, stringsAsFactors = FALSE)
 
 # Feature extraction
 extract_sequence_features <- function(sequences) {

@@ -7,8 +7,17 @@ library(stringr)
 library(corrplot)
 library(gridExtra)
 
+# Determine correct data/results paths regardless of whether the script is
+# run from the project root or from scripts/r/
+data_path <- "data/genomics_data.csv"
+results_dir <- "results"
+if (!file.exists(data_path)) {
+  data_path <- "../../data/genomics_data.csv"
+  results_dir <- "../../results"
+}
+
 # Load data
-df <- read.csv("../data/genomics_data.csv", stringsAsFactors = FALSE)
+df <- read.csv(data_path, stringsAsFactors = FALSE)
 
 # Feature extraction
 extract_sequence_features <- function(sequences) {
@@ -101,7 +110,7 @@ for (col in numeric_cols) {
 
 # Visualizations
 # Distribution plots
-png("../results/r_eda_distributions.png", width = 2000, height = 1500, res = 300)
+png(file.path(results_dir, "r_eda_distributions.png"), width = 2000, height = 1500, res = 300)
 par(mfrow = c(2, 4))
 for (col in numeric_cols) {
   hist(df_features[[col]], main = paste("Distribution of", col), 
@@ -110,13 +119,13 @@ for (col in numeric_cols) {
 dev.off()
 
 # Correlation heatmap
-png("../results/r_eda_correlation.png", width = 1200, height = 1000, res = 300)
+png(file.path(results_dir, "r_eda_correlation.png"), width = 1200, height = 1000, res = 300)
 corrplot(cor_matrix, method = "color", type = "upper", 
          order = "hclust", tl.cex = 0.8, tl.col = "black")
 dev.off()
 
 # Box plots by label
-png("../results/r_eda_boxplots.png", width = 2000, height = 1500, res = 300)
+png(file.path(results_dir, "r_eda_boxplots.png"), width = 2000, height = 1500, res = 300)
 par(mfrow = c(2, 4))
 for (col in numeric_cols) {
   boxplot(df_features[[col]] ~ df_features$Labels, 
@@ -126,6 +135,6 @@ for (col in numeric_cols) {
 dev.off()
 
 cat("\n================================================================================\n")
-cat("EDA COMPLETE - Visualizations saved to ../results/\n")
+cat(sprintf("EDA COMPLETE - Visualizations saved to %s/\n", results_dir))
 cat("================================================================================\n")
 

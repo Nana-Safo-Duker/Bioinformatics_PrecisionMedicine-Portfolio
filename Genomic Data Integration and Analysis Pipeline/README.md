@@ -12,6 +12,7 @@ A comprehensive bioinformatics project analyzing genomics sequence data using st
 - [Usage](#usage)
 - [Analysis Components](#analysis-components)
 - [Results](#results)
+- [Visualizations](#visualizations)
 - [License](#license)
 - [Contributing](#contributing)
 
@@ -250,6 +251,34 @@ All results and visualizations are saved in the `results/` directory:
 - Model comparison charts
 - ROC curves
 - Confusion matrices
+
+## Visualizations
+
+### Exploratory data analysis
+
+**Feature distributions**
+
+![EDA feature distributions](docs/images/eda_distributions.png)
+
+**Correlation structure**
+
+![EDA correlation heatmap](docs/images/eda_correlation.png)
+
+**Feature boxplots by label**
+
+![EDA boxplots by label](docs/images/eda_boxplots.png)
+
+### Machine learning
+
+**Model comparison**
+
+![ML model comparison](docs/images/ml_model_comparison.png)
+
+**ROC curves**
+
+![ML ROC curves](docs/images/ml_roc_curves.png)
+
+Showcase images are in `docs/images/`. Scripts under `scripts/python/` regenerate outputs into `results/`.
 
 ## 📄 License
 

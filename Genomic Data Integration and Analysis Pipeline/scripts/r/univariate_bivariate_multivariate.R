@@ -9,8 +9,17 @@ library(FactoMineR)
 library(factoextra)
 library(gridExtra)
 
-# Set working directory and load data
-df <- read.csv("../data/genomics_data.csv", stringsAsFactors = FALSE)
+# Determine correct data/results paths regardless of whether the script is
+# run from the project root or from scripts/r/
+data_path <- "data/genomics_data.csv"
+results_dir <- "results"
+if (!file.exists(data_path)) {
+  data_path <- "../../data/genomics_data.csv"
+  results_dir <- "../../results"
+}
+
+# Load data
+df <- read.csv(data_path, stringsAsFactors = FALSE)
 cat("Dataset shape:", dim(df), "\n")
 
 # Feature extraction function
@@ -76,7 +85,7 @@ for (col in numeric_cols) {
 }
 
 # Univariate visualizations
-png("../results/r_univariate_continuous.png", width = 2000, height = 1500, res = 300)
+png(file.path(results_dir, "r_univariate_continuous.png"), width = 2000, height = 1500, res = 300)
 par(mfrow = c(2, 4))
 for (col in numeric_cols) {
   hist(df_features[[col]], main = paste("Distribution of", col), 
@@ -93,7 +102,7 @@ print("Correlation Matrix:")
 print(cor_matrix)
 
 # Correlation plot
-png("../results/r_bivariate_correlation.png", width = 1200, height = 1000, res = 300)
+png(file.path(results_dir, "r_bivariate_correlation.png"), width = 1200, height = 1000, res = 300)
 corrplot(cor_matrix, method = "color", type = "upper", 
          order = "hclust", tl.cex = 0.8, tl.col = "black")
 dev.off()
@@ -117,7 +126,7 @@ pca_result <- prcomp(X_scaled, center = FALSE, scale. = FALSE)
 summary(pca_result)
 
 # PCA plot
-png("../results/r_multivariate_pca.png", width = 1200, height = 1000, res = 300)
+png(file.path(results_dir, "r_multivariate_pca.png"), width = 1200, height = 1000, res = 300)
 fviz_pca_ind(pca_result, geom.ind = "point", 
              col.ind = as.factor(df_features$Labels),
              palette = c("#00AFBB", "#E7B800"),

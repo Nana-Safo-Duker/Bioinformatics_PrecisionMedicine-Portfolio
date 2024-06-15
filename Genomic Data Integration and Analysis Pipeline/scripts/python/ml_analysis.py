@@ -172,7 +172,7 @@ def plot_results(results, X_test, y_test):
         axes[1].text(v, i, f'{v:.3f}', va='center', fontweight='bold')
     
     plt.tight_layout()
-    plt.savefig('../results/ml_model_comparison.png', dpi=300, bbox_inches='tight')
+    plt.savefig('../../results/ml_model_comparison.png', dpi=300, bbox_inches='tight')
     plt.close()
     
     # ROC curves
@@ -189,14 +189,14 @@ def plot_results(results, X_test, y_test):
     plt.legend(loc='lower right')
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
-    plt.savefig('../results/ml_roc_curves.png', dpi=300, bbox_inches='tight')
+    plt.savefig('../../results/ml_roc_curves.png', dpi=300, bbox_inches='tight')
     plt.close()
     
-    print("\nVisualizations saved to ../results/")
+    print("\nVisualizations saved to ../../results/")
 
 def main():
     # Load data
-    df = pd.read_csv('../data/genomics_data.csv')
+    df = pd.read_csv('../../data/genomics_data.csv')
     print(f"Dataset shape: {df.shape}")
     
     # Extract features

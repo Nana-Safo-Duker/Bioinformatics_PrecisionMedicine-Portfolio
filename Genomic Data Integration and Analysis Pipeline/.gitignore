@@ -42,11 +42,14 @@ venv.bak/
 # Results and Output
 results/*
 !results/.gitkeep
-*.png
-*.jpg
-*.pdf
+results/*.png
+results/*.jpg
+results/*.pdf
 *.csv
 !data/genomics_data.csv
+# Showcase images for README (committed)
+!docs/images/
+!docs/images/**
 
 # IDE
 .vscode/

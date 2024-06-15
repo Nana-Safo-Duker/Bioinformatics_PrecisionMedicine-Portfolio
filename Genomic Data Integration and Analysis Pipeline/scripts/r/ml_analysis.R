@@ -9,8 +9,17 @@ library(pROC)
 library(ggplot2)
 library(stringr)
 
+# Determine correct data/results paths regardless of whether the script is
+# run from the project root or from scripts/r/
+data_path <- "data/genomics_data.csv"
+results_dir <- "results"
+if (!file.exists(data_path)) {
+  data_path <- "../../data/genomics_data.csv"
+  results_dir <- "../../results"
+}
+
 # Load data
-df <- read.csv("../data/genomics_data.csv", stringsAsFactors = FALSE)
+df <- read.csv(data_path, stringsAsFactors = FALSE)
 
 # Feature extraction
 extract_sequence_features <- function(sequences) {
@@ -175,7 +184,7 @@ cat("\nBest Model (by F1-Score):", best_model_name, "\n")
 cat("F1-Score:", results$F1[results$Model == best_model_name], "\n")
 
 # ROC curves
-png("../results/r_ml_roc_curves.png", width = 1200, height = 1000, res = 300)
+png(file.path(results_dir, "r_ml_roc_curves.png"), width = 1200, height = 1000, res = 300)
 roc_curves <- list()
 colors <- rainbow(length(models))
 plot(roc(as.numeric(y_test_factor) - 1, models[[1]]$pred_proba), 
@@ -186,5 +195,5 @@ for (i in 2:length(models)) {
 legend("bottomright", legend = names(models), col = colors, lty = 1, lwd = 2)
 dev.off()
 
-cat("\nAnalysis complete! Visualizations saved to ../results/\n")
+cat(sprintf("\nAnalysis complete! Visualizations saved to %s/\n", results_dir))
 

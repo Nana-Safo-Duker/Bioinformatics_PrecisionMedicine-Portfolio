@@ -163,7 +163,7 @@ def exploratory_analysis(df_features):
 
 def main():
     # Load data
-    df = pd.read_csv('../data/genomics_data.csv')
+    df = pd.read_csv('../../data/genomics_data.csv')
     print(f"Dataset shape: {df.shape}")
     
     # Extract features

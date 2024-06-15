@@ -166,7 +166,7 @@ def create_visualizations(df_features):
         ax.set_xlabel(col)
         ax.set_ylabel('Frequency')
     plt.tight_layout()
-    plt.savefig('../results/eda_distributions.png', dpi=300, bbox_inches='tight')
+    plt.savefig('../../results/eda_distributions.png', dpi=300, bbox_inches='tight')
     plt.close()
     
     # 2. Correlation heatmap
@@ -176,7 +176,7 @@ def create_visualizations(df_features):
                 square=True, linewidths=0.5, cbar_kws={"shrink": 0.8})
     plt.title('Correlation Heatmap - All Features', fontsize=16, fontweight='bold', pad=20)
     plt.tight_layout()
-    plt.savefig('../results/eda_correlation.png', dpi=300, bbox_inches='tight')
+    plt.savefig('../../results/eda_correlation.png', dpi=300, bbox_inches='tight')
     plt.close()
     
     # 3. Box plots by label
@@ -189,14 +189,14 @@ def create_visualizations(df_features):
         ax.set_xlabel('Label')
         ax.get_figure().suptitle('')
     plt.tight_layout()
-    plt.savefig('../results/eda_boxplots.png', dpi=300, bbox_inches='tight')
+    plt.savefig('../../results/eda_boxplots.png', dpi=300, bbox_inches='tight')
     plt.close()
     
-    print("Visualizations saved to ../results/")
+    print("Visualizations saved to ../../results/")
 
 def main():
     # Load data
-    df = pd.read_csv('../data/genomics_data.csv')
+    df = pd.read_csv('../../data/genomics_data.csv')
     print(f"Loading data... Shape: {df.shape}")
     
     # Extract features
