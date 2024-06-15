@@ -329,7 +329,7 @@ For questions or suggestions, please open an issue on the GitHub repository.
 
 ---
 
-**Last Updated**: 2025
+**Last Updated**: June 2024
 
 **Version**: 1.0.0
 
