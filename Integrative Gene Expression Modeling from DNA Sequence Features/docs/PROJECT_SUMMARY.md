@@ -115,5 +115,4 @@ rmarkdown::render("notebooks/gene_expression_prediction.Rmd")
 - The project is ready for GitHub upload
 - Remember to update README.md with actual dataset license information
 
-
-
+**Last Updated**: June 2024

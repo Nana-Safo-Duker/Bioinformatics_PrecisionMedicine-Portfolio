@@ -166,7 +166,7 @@ source("src/main.R")
 
 **Project Status**: ✅ Complete and ready for use
 
-**Last Updated**: 2024-01-XX
+**Last Updated**: June 2024
 
 **Version**: 1.0.0
 

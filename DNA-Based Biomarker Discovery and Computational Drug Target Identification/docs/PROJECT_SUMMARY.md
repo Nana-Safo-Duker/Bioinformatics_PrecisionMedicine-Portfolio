@@ -155,6 +155,6 @@ For questions or contributions, please open an issue on GitHub.
 
 ---
 
-**Last Updated**: 2025
+**Last Updated**: June 2024
 **Version**: 1.0.0
 
