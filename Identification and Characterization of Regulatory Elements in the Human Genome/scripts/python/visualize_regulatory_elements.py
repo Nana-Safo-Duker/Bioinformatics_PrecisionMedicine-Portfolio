@@ -11,7 +11,9 @@ def visualize_regulatory_elements():
     """Create visualizations of regulatory element characteristics"""
     
     # Load data
-    df = pd.read_csv('genomics_data.csv')
+    import os
+    os.makedirs('../../results', exist_ok=True)
+    df = pd.read_csv('../../data/genomics_data.csv')
     
     # Separate regulatory and non-regulatory sequences
     regulatory = df[df['Labels'] == 1]['Sequences']
@@ -71,8 +73,8 @@ def visualize_regulatory_elements():
     axes[1, 1].grid(alpha=0.3, axis='y')
     
     plt.tight_layout()
-    plt.savefig('regulatory_elements_analysis.png', dpi=300, bbox_inches='tight')
-    print("Visualization saved as 'regulatory_elements_analysis.png'")
+    plt.savefig('../../results/regulatory_elements_analysis.png', dpi=300, bbox_inches='tight')
+    print("Visualization saved as '../../results/regulatory_elements_analysis.png'")
     
     # Create motif presence comparison
     fig2, ax = plt.subplots(figsize=(12, 6))
@@ -116,8 +118,8 @@ def visualize_regulatory_elements():
                        ha='center', va='bottom', fontsize=9)
     
     plt.tight_layout()
-    plt.savefig('regulatory_motifs_comparison.png', dpi=300, bbox_inches='tight')
-    print("Motif comparison saved as 'regulatory_motifs_comparison.png'")
+    plt.savefig('../../results/regulatory_motifs_comparison.png', dpi=300, bbox_inches='tight')
+    print("Motif comparison saved as '../../results/regulatory_motifs_comparison.png'")
 
 if __name__ == "__main__":
     visualize_regulatory_elements()

@@ -7,8 +7,6 @@ import pandas as pd
 import numpy as np
 from collections import Counter
 import re
-from Bio import motifs
-from Bio.Seq import Seq
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -212,14 +210,17 @@ Regulatory elements (promoters, enhancers, silencers, insulators) are encoded by
     }
 
 if __name__ == "__main__":
+    import os
+    os.makedirs('../../results', exist_ok=True)
+
     # Load data
-    df = load_data('genomics_data.csv')
+    df = load_data('../../data/genomics_data.csv')
     
     # Analyze regulatory elements
     results = identify_regulatory_element_sequences(df)
     
     # Save regulatory sequences
     regulatory_df = df[df['Labels'] == 1]
-    regulatory_df.to_csv('regulatory_sequences.csv', index=False)
-    print(f"\n[SUCCESS] Saved {len(regulatory_df)} regulatory sequences to 'regulatory_sequences.csv'")
+    regulatory_df.to_csv('../../results/regulatory_sequences.csv', index=False)
+    print(f"\n[SUCCESS] Saved {len(regulatory_df)} regulatory sequences to '../../results/regulatory_sequences.csv'")
 

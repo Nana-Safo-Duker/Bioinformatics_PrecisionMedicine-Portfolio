@@ -11,6 +11,7 @@ A comprehensive machine learning project for identifying regulatory elements (pr
 - [Usage](#usage)
 - [Features](#features)
 - [Results](#results)
+- [Visualizations](#visualizations)
 - [Dataset License](#dataset-license)
 - [Contributing](#contributing)
 - [License](#license)
@@ -214,6 +215,34 @@ The analysis generates several visualizations:
 4. **Feature Importance**: Top features contributing to regulatory element identification
 
 Results are automatically saved in the `results/` directory.
+
+## Visualizations
+
+### Sequence composition & motif enrichment
+
+![Regulatory vs non-regulatory sequence analysis](docs/images/regulatory_elements_analysis.png)
+
+![Known motif occurrence comparison](docs/images/regulatory_motifs_comparison.png)
+
+### Model evaluation
+
+**Performance comparison**
+
+![Regulatory element model comparison](docs/images/model_comparison.png)
+
+**ROC curves**
+
+![Regulatory element ROC curves](docs/images/roc_curves.png)
+
+**Confusion matrices**
+
+![Regulatory element confusion matrices](docs/images/confusion_matrices.png)
+
+**Feature importance**
+
+![Regulatory element feature importance](docs/images/feature_importance.png)
+
+Showcase images are stored in `docs/images/`. Run `src/regulatory_element_identification.py` or `scripts/python/visualize_regulatory_elements.py` to regenerate under `results/`.
 
 ## 📄 Dataset License
 
