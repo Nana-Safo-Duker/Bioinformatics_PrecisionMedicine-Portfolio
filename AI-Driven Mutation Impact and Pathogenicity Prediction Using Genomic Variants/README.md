@@ -12,6 +12,7 @@ A comprehensive machine learning project for predicting the functional impact of
 - [Dataset](#dataset)
 - [Models](#models)
 - [Results](#results)
+- [Visualizations](#visualizations)
 - [Contributing](#contributing)
 - [License](#license)
 - [References](#references)
@@ -292,6 +293,16 @@ Performance may vary based on:
 - Encoding method
 - Model hyperparameters
 - Class distribution
+
+## Visualizations
+
+Summary dashboard from the mutation pathogenicity pipeline (class balance, model comparison, ROC curves, confusion matrix, feature importance, and prediction confidence):
+
+![Mutation impact model comparison dashboard](docs/images/model_comparison.png)
+
+*Figure: End-to-end evaluation of Random Forest, Gradient Boosting, Logistic Regression, and SVM for benign vs. pathogenic mutation classification.*
+
+Plots are regenerated under `results/` when you run the notebooks or `examples/quick_start.py`. Showcase copies live in `docs/images/` for this README.
 
 ## Contributing
 
