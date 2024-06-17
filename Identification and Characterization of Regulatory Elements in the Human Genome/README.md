@@ -277,3 +277,4 @@ For questions or issues, please open an issue on the GitHub repository.
 
 **Note**: This project is designed for educational and research purposes. Always verify results with experimental validation in biological contexts.
 
+**Last Updated**: June 2024
