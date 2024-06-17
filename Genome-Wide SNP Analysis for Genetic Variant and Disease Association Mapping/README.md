@@ -12,6 +12,7 @@ A comprehensive bioinformatics project for identifying and analyzing genetic var
 - [Dataset](#dataset)
 - [Methods](#methods)
 - [Results](#results)
+- [Visualizations](#visualizations)
 - [License](#license)
 - [Contributing](#contributing)
 - [Contact](#contact)
@@ -300,6 +301,22 @@ The analysis pipeline generates:
    - Correlation heatmaps
 
 Results are saved in the `results/` directory.
+
+## Visualizations
+
+### Variant distributions
+
+![SNP, indel, and structural variant distributions](docs/images/variant_distributions.png)
+
+### Disease association
+
+![Variant counts by disease label](docs/images/disease_association_analysis.png)
+
+### Correlation heatmap
+
+![Correlation among variant types and labels](docs/images/correlation_heatmap.png)
+
+Showcase copies live in `docs/images/`. Regenerate plots by running `src/variant_analysis.py` from the project root.
 
 ## 📄 License
 

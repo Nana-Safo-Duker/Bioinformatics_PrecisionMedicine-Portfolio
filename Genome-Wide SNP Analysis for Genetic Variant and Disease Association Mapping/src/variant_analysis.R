@@ -13,7 +13,20 @@ library(dplyr)  # Note: dplyr masks some base/stats functions (filter, lag, etc.
 library(gridExtra)
 library(corrplot)
 
-source("src/variant_identification.R")
+# Source variant identification functions, if not already loaded (e.g. by a
+# notebook/script that already sourced this file directly before sourcing
+# this one). Otherwise, try to locate it regardless of the current working
+# directory (project root, src/, or notebooks/).
+if (!exists("identify_snps")) {
+  candidate_paths <- c("src/variant_identification.R",
+                       "variant_identification.R",
+                       "../src/variant_identification.R")
+  found_path <- candidate_paths[file.exists(candidate_paths)][1]
+  if (is.na(found_path)) {
+    stop("Could not locate variant_identification.R. Please source it manually before this script.")
+  }
+  source(found_path)
+}
 
 #' Create summary statistics for variant analysis
 #' @param results_df Data frame with variant analysis results
