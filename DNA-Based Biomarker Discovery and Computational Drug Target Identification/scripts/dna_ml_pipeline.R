@@ -14,8 +14,19 @@ library(pROC)
 library(dplyr)
 library(data.table)
 
-# Source feature extraction script
-source("dna_feature_extraction.R")
+# Source feature extraction script, if not already loaded (e.g. by a
+# notebook that already sourced it directly before sourcing this file).
+# Otherwise, try to locate it regardless of the current working directory.
+if (!exists("extract_dna_features")) {
+  candidate_paths <- c("dna_feature_extraction.R",
+                       "scripts/dna_feature_extraction.R",
+                       "../scripts/dna_feature_extraction.R")
+  found_path <- candidate_paths[file.exists(candidate_paths)][1]
+  if (is.na(found_path)) {
+    stop("Could not locate dna_feature_extraction.R. Please source it manually before this script.")
+  }
+  source(found_path)
+}
 
 #' Train multiple machine learning models and evaluate their performance
 #'
@@ -262,7 +273,7 @@ main <- function() {
   # Prepare data
   if ("Labels" %in% colnames(df)) {
     y <- df$Labels
-    X <- features %>% select(-Labels) %>% as.matrix()
+    X <- as.matrix(features)
   } else {
     stop("Labels column not found in data")
   }

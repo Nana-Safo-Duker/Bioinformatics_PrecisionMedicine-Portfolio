@@ -12,6 +12,7 @@ A comprehensive machine learning pipeline for identifying potential biomarkers a
 - [Data](#data)
 - [Methods](#methods)
 - [Results](#results)
+- [Visualizations](#visualizations)
 - [License](#license)
 - [Contributing](#contributing)
 - [Citation](#citation)
@@ -277,8 +278,28 @@ The pipeline generates several outputs:
 Results are saved in the `results/` directory:
 - `results/figures/`: Visualization files
 - `results/models/`: Trained models
-- `results/top_biomarkers.csv`: Identified biomarkers
-- `results/model_comparison.csv`: Model performance comparison
+- `results/models/feature_importance.csv`: Ranked DNA features
+- `results/models/model_comparison.csv`: Model performance comparison
+
+## Visualizations
+
+### Model comparison
+
+![DNA biomarker model comparison](docs/images/model_comparison.png)
+
+### ROC curves
+
+![DNA biomarker ROC curves](docs/images/roc_curves.png)
+
+### Feature importance
+
+![Top DNA sequence feature importances](docs/images/feature_importance.png)
+
+### Confusion matrices
+
+![DNA biomarker confusion matrices](docs/images/confusion_matrices.png)
+
+Showcase images are stored in `docs/images/`. Running `scripts/dna_ml_pipeline.py` also writes figures and CSVs under `results/`.
 
 ## 📄 License
 
