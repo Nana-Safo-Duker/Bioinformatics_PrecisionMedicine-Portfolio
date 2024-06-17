@@ -242,8 +242,7 @@ class TFBindingPredictor:
             max_depth=max_depth,
             learning_rate=0.1,
             random_state=42,
-            eval_metric='logloss',
-            use_label_encoder=False
+            eval_metric='logloss'
         )
         model.fit(self.X_train_flat, self.y_train)
         self.models['xgboost'] = model

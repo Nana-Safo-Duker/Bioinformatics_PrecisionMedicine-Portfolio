@@ -179,7 +179,9 @@ train_svm <- function(X_train, y_train) {
 #' Train Neural Network model
 #' 
 #' @param train_data Training data with labels
-#' @return Trained model
+#' @return List containing the trained model and the scaling parameters
+#'   (center/scale) used on the training features, so the same transform
+#'   can be re-applied to test data instead of independently re-scaling it.
 train_neural_network <- function(train_data) {
   cat("\nTraining Neural Network model...\n")
   
@@ -189,12 +191,19 @@ train_neural_network <- function(train_data) {
   formula_str <- paste("Label ~", paste(feature_names, collapse = " + "))
   formula <- as.formula(formula_str)
   
-  # Scale data for neural network
+  # Scale data for neural network (store center/scale to reuse on test data)
   scaled_data <- train_data
+  scale_centers <- numeric(n_features)
+  scale_scales <- numeric(n_features)
   for (i in 1:n_features) {
     col_name <- feature_names[i]
-    scaled_data[[col_name]] <- scale(scaled_data[[col_name]])
+    scaled_col <- scale(scaled_data[[col_name]])
+    scaled_data[[col_name]] <- scaled_col
+    scale_centers[i] <- attr(scaled_col, "scaled:center")
+    scale_scales[i] <- attr(scaled_col, "scaled:scale")
   }
+  names(scale_centers) <- feature_names
+  names(scale_scales) <- feature_names
   
   # Convert labels to numeric
   scaled_data$Label <- as.numeric(scaled_data$Label) - 1
@@ -209,7 +218,7 @@ train_neural_network <- function(train_data) {
     stepmax = 1e6
   )
   
-  return(model)
+  return(list(model = model, center = scale_centers, scale = scale_scales))
 }
 
 #' Train Logistic Regression model
@@ -251,14 +260,16 @@ evaluate_model <- function(model, X_test, y_test, model_type) {
     y_pred <- predict(model, X_test)
     y_pred_proba <- attr(predict(model, X_test, probability = TRUE), "probabilities")[, 2]
   } else if (model_type == "neural_network") {
-    # Scale test data
+    # Scale test data using the training set's center/scale (avoids leakage
+    # from re-computing scaling statistics on the test set itself)
     test_scaled <- X_test
     for (i in 1:ncol(X_test)) {
-      test_scaled[, i] <- scale(X_test[, i])
+      col_name <- colnames(X_test)[i]
+      test_scaled[, i] <- (X_test[, i] - model$center[col_name]) / model$scale[col_name]
     }
     
     # Predict
-    predictions <- compute(model, test_scaled)
+    predictions <- compute(model$model, test_scaled)
     y_pred_proba <- predictions$net.result
     y_pred <- ifelse(y_pred_proba > 0.5, 1, 0)
     y_pred <- factor(y_pred, levels = c(0, 1))

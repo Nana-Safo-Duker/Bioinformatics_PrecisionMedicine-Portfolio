@@ -11,6 +11,7 @@ A comprehensive machine learning and deep learning project for predicting transc
 - [Usage](#usage)
 - [Models](#models)
 - [Results](#results)
+- [Visualizations](#visualizations)
 - [Dataset](#dataset)
 - [License](#license)
 - [Contributing](#contributing)
@@ -259,6 +260,18 @@ Results are saved in:
 - `results/model_comparison.csv`: Comparative metrics
 - `results/*.png`: Visualizations (confusion matrices, ROC curves, training history)
 - `models/results.json`: Detailed results (Python)
+
+## Visualizations
+
+### Confusion matrices
+
+![TF binding confusion matrices](docs/images/confusion_matrices.png)
+
+### ROC curves
+
+![TF binding ROC curves](docs/images/roc_curves.png)
+
+Deep-learning training-history plots (`cnn_training_history.png`, `lstm_training_history.png`) are written to `results/` when TensorFlow is available and the full Python pipeline is run. Showcase copies of the classical-ML evaluation figures live in `docs/images/`.
 
 ## Dataset
 
