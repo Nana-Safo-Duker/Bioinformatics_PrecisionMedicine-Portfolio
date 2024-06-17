@@ -1,6 +1,6 @@
 # AI/ML Bioinformatics & Precision Medicine
 
-Multi-project laboratory of clinical-grade genomics analytics created by Nana Safo-Duker. Each folder is a self-contained workflow that combines statistical genetics, explainable ML, and deep learning to solve a different precision-medicine task—from mutation pathogenicity classification to transcription-factor binding prediction. This README provides the cross-project narrative that was missing in `Screenshot_10` by documenting structure, shared tooling, and deliverables.
+Multi-project laboratory of clinical-grade genomics analytics created by Nana Safo-Duker. Each folder is a self-contained workflow that combines statistical genetics, explainable ML, and deep learning to solve a different precision-medicine task from mutation pathogenicity classification to transcription-factor binding prediction. This README provides the cross-project narrative that was missing in `Screenshot_10` by documenting structure, shared tooling, and deliverables.
 
 ---
 
@@ -195,7 +195,7 @@ Integrate these hooks into CI pipelines (e.g., GitHub Actions) by executing note
 
 1. **Create a feature branch**: `git checkout -b feature/<feature-name>`.
 2. **Work within a project folder** to avoid cross-contamination; add missing documentation, notebooks, or scripts there.
-3. **Document everything**—update both the project-level README and this portfolio README when scope changes.
+3. **Document everything** update both the project-level README and this portfolio README when scope changes.
 4. **Validate** by executing relevant notebooks/scripts or running any included unit tests.
 5. **Submit a Pull Request** detailing datasets, methods, evaluation metrics, and any compliance considerations.
 
@@ -217,4 +217,4 @@ Questions, collaboration requests, or demo inquiries? Open an issue or reach out
 
 > Also see: [Clinical-Data-Science-Health-Analytics](https://github.com/Nana-Safo-Duker/Clinical-Data-Science-Health-Analytics) for companion clinical analytics projects.
 
-
+**Last Updated**: June 2024
