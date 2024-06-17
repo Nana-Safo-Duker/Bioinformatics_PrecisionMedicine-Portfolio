@@ -330,3 +330,4 @@ For questions or suggestions, please open an issue on GitHub or contact the proj
 
 **Note**: This project is for research and educational purposes. Always validate predictions with experimental data before making clinical or pharmaceutical decisions.
 
+**Last Updated**: June 2024
