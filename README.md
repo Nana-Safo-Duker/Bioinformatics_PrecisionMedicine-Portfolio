@@ -1,4 +1,4 @@
-# AI/ML Bioinformatics & Precision Medicine Portfolio
+# AI/ML Bioinformatics & Precision Medicine
 
 Multi-project laboratory of clinical-grade genomics analytics created by Nana Safo-Duker. Each folder is a self-contained workflow that combines statistical genetics, explainable ML, and deep learning to solve a different precision-medicine task—from mutation pathogenicity classification to transcription-factor binding prediction. This README provides the cross-project narrative that was missing in `Screenshot_10` by documenting structure, shared tooling, and deliverables.
 
