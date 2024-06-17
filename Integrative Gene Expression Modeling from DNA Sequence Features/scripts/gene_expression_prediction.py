@@ -222,7 +222,7 @@ def evaluate_model(model, X_test, y_test, model_name):
     
     return metrics
 
-def plot_results(metrics_dict, save_path=None):
+def plot_results(metrics_dict, models_dict=None, save_path=None):
     """
     Plot evaluation results.
     
@@ -230,6 +230,8 @@ def plot_results(metrics_dict, save_path=None):
     -----------
     metrics_dict : dict
         Dictionary containing metrics for different models
+    models_dict : dict
+        Dictionary containing the trained model objects, keyed by model name
     save_path : str
         Path to save the plot
     """
@@ -263,17 +265,24 @@ def plot_results(metrics_dict, save_path=None):
     axes[0, 1].grid(alpha=0.3)
     
     # Confusion Matrix for best model
-    best_model = max(metrics_dict.items(), key=lambda x: x[1]['accuracy'])
-    cm = best_model[1]['confusion_matrix']
+    best_model_name, best_model_metrics = max(metrics_dict.items(), key=lambda x: x[1]['accuracy'])
+    cm = best_model_metrics['confusion_matrix']
     sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', ax=axes[1, 0])
-    axes[1, 0].set_title(f'Confusion Matrix - {best_model[0]}', fontsize=14, fontweight='bold')
+    axes[1, 0].set_title(f'Confusion Matrix - {best_model_name}', fontsize=14, fontweight='bold')
     axes[1, 0].set_ylabel('True Label')
     axes[1, 0].set_xlabel('Predicted Label')
     
     # Feature importance (for tree-based models)
-    if hasattr(best_model, 'feature_importances_'):
-        # This would require the model object, which we don't store in metrics_dict
-        # So we'll skip this for now
+    best_model_obj = models_dict.get(best_model_name) if models_dict else None
+    if best_model_obj is not None and hasattr(best_model_obj, 'feature_importances_'):
+        importances = best_model_obj.feature_importances_
+        top_indices = np.argsort(importances)[::-1][:15]
+        axes[1, 1].barh(range(len(top_indices)), importances[top_indices])
+        axes[1, 1].set_yticks(range(len(top_indices)))
+        axes[1, 1].set_yticklabels([f'Feature {i}' for i in top_indices])
+        axes[1, 1].set_title(f'Top Feature Importances - {best_model_name}', fontsize=14, fontweight='bold')
+        axes[1, 1].set_xlabel('Importance')
+    else:
         axes[1, 1].text(0.5, 0.5, 'Feature Importance\n(available for tree-based models)', 
                        ha='center', va='center', fontsize=12)
         axes[1, 1].set_title('Feature Importance', fontsize=14, fontweight='bold')
@@ -353,7 +362,7 @@ def main():
     
     # Plot results
     print("\n6. Generating plots...")
-    plot_results(metrics_dict, save_path=results_path / 'model_comparison.png')
+    plot_results(metrics_dict, models_dict=trained_models, save_path=results_path / 'model_comparison.png')
     print(f"   Plots saved to {results_path / 'model_comparison.png'}")
     
     # Print detailed results

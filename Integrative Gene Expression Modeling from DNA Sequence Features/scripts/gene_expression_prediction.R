@@ -428,7 +428,7 @@ cat(sprintf("Best model (%s) saved to %s\n",
 # ============================================================================
 
 cat("\n7. Detailed Results:\n")
-cat(strrep("=", 80) %+% "\n")
+cat(paste0(strrep("=", 80), "\n"))
 
 for (model_name in names(results)) {
   cat(sprintf("\n%s:\n", model_name))

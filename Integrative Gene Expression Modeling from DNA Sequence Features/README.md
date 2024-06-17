@@ -11,6 +11,7 @@ A comprehensive machine learning project for predicting gene expression levels f
 - [Usage](#usage)
 - [Methods](#methods)
 - [Results](#results)
+- [Visualizations](#visualizations)
 - [License](#license)
 - [Contributing](#contributing)
 
@@ -240,6 +241,16 @@ Results are saved in the `results/` directory:
 ### Best Model
 
 The best-performing model is automatically saved in the `models/` directory.
+
+## Visualizations
+
+Model accuracy, ROC-AUC, confusion matrices, and top feature importances from the Python gene-expression pipeline:
+
+![Gene expression model comparison](docs/images/model_comparison.png)
+
+*Figure: Side-by-side evaluation of Random Forest, Gradient Boosting, XGBoost, LightGBM, and SVM for high vs. low expression prediction from DNA sequence features.*
+
+Showcase copy: `docs/images/model_comparison.png`. Regenerate with `python scripts/gene_expression_prediction.py`.
 
 ## 📝 Notes
 
