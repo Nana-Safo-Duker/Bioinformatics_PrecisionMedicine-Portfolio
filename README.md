@@ -6,10 +6,11 @@ Multi-project laboratory of clinical-grade genomics analytics created by Nana Sa
 
 ## Table of Contents
 
-1. [Portfolio Overview](#portfolio-overview)
-2. [Repository Layout](#repository-layout)
-3. [Shared Setup Workflow](#shared-setup-workflow)
-4. [Project Capsules](#project-capsules)
+1. [About](#about)
+2. [Portfolio Overview](#portfolio-overview)
+3. [Repository Layout](#repository-layout)
+4. [Shared Setup Workflow](#shared-setup-workflow)
+5. [Project Capsules](#project-capsules)
    - [Mutation Impact & Pathogenicity](#1-ai-driven-mutation-impact-and-pathogenicity-prediction-using-genomic-variants)
    - [DNA Biomarker Discovery](#2-dna-based-biomarker-discovery-and-computational-drug-target-identification)
    - [Genome-Wide SNP Analysis](#3-genome-wide-snp-analysis-for-genetic-variant-and-disease-association-mapping)
@@ -18,10 +19,18 @@ Multi-project laboratory of clinical-grade genomics analytics created by Nana Sa
    - [Gene Expression Modeling](#6-integrative-gene-expression-modeling-from-dna-sequence-features)
    - [TF Binding Site Prediction](#7-predictive-modeling-of-transcription-factor-binding-sites-using-deep-learning)
    - [Coding Potential Annotation](#8-functional-annotation-and-coding-potential-prediction-of-genomic-sequences)
-5. [Data Sources & Governance](#data-sources--governance)
-6. [Contributing](#contributing)
-7. [Roadmap](#roadmap)
-8. [Contact](#contact)
+6. [Data Sources & Governance](#data-sources--governance)
+7. [Contributing](#contributing)
+8. [Roadmap](#roadmap)
+9. [Contact](#contact)
+
+---
+
+## About
+
+- **Description:** AI/ML bioinformatics portfolio covering mutation impact, biomarker discovery, SNP mapping, regulatory genomics, expression modeling, and transcription-factor binding analysis.
+- **Website:** [https://nana-safo-duker.github.io/](https://nana-safo-duker.github.io/)
+- **Topics:** bioinformatics · genomics · precision medicine · computational biology · biomarker discovery · gene expression · transcription factors · variant analysis · health analytics · AI in healthcare.
 
 ---
 
