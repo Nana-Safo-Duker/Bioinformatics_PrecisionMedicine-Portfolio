@@ -1,6 +1,6 @@
 # AI/ML Bioinformatics & Precision Medicine
 
-Multi-project laboratory of clinical-grade genomics analytics created by Nana Safo-Duker. Each folder is a self-contained workflow that combines statistical genetics, explainable ML, and deep learning to solve a different precision-medicine task from mutation pathogenicity classification to transcription-factor binding prediction. This README provides the cross-project narrative that was missing in `Screenshot_10` by documenting structure, shared tooling, and deliverables.
+Multi-project laboratory of clinical-grade genomics analytics created by Nana Safo-Duker. Each folder is a self-contained workflow that combines statistical genetics, explainable ML, and deep learning to solve a different precision-medicine task from mutation pathogenicity classification to transcription-factor binding prediction. This README provides the cross-project narrative by documenting structure, shared tooling, and deliverables.
 
 ---
 
@@ -18,11 +18,11 @@ Multi-project laboratory of clinical-grade genomics analytics created by Nana Sa
    - [Regulatory Element Identification](#5-identification-and-characterization-of-regulatory-elements-in-the-human-genome)
    - [Gene Expression Modeling](#6-integrative-gene-expression-modeling-from-dna-sequence-features)
    - [TF Binding Site Prediction](#7-predictive-modeling-of-transcription-factor-binding-sites-using-deep-learning)
-   - [Coding Potential Annotation](#8-functional-annotation-and-coding-potential-prediction-of-genomic-sequences)
-6. [Data Sources & Governance](#data-sources--governance)
-7. [Contributing](#contributing)
-8. [Roadmap](#roadmap)
-9. [Contact](#contact)
+6. [Visualization Gallery](#visualization-gallery)
+7. [Data Sources & Governance](#data-sources--governance)
+8. [Contributing](#contributing)
+9. [Roadmap](#roadmap)
+10. [Contact](#contact)
 
 ---
 
@@ -36,23 +36,22 @@ Multi-project laboratory of clinical-grade genomics analytics created by Nana Sa
 
 ## Portfolio Overview
 
-- **Disciplines represented:** variant pathogenicity scoring, biomarker discovery, SNP association mapping, integrative genomics, regulatory genomics, gene expression modeling, transcription factor binding analysis, coding-potential annotation.
+- **Disciplines represented:** variant pathogenicity scoring, biomarker discovery, SNP association mapping, integrative genomics, regulatory genomics, gene expression modeling, transcription factor binding analysis.
 - **Languages & runtimes:** Python 3.10+, R 4.x, Jupyter Notebooks, R Markdown, Conda environments, pip, IRkernel.
 - **Learning paradigms:** gradient boosting, ensemble methods, random forests, SVM, logistic regression, neural networks, CNNs/LSTMs, probabilistic analyses, statistical hypothesis testing.
 - **Deliverables:** reproducible notebooks, reusable scripts/modules, serialized models, diagnostic plots, quick-start guides, and documentation files tailored to each domain problem.
-- **Operational footprint:** 50+ commits across eight projects, mirrored Python/R implementations, serialized checkpoints under `models/`, and ready-to-run sample data for every workflow ([[GitHub Repo]](https://github.com/Nana-Safo-Duker/AI-ML-Bioinformatics_-_Precision-Medicine)).
+- **Operational footprint:** 50+ commits across seven projects, mirrored Python/R implementations, serialized checkpoints under `models/`, and ready-to-run sample data for every workflow ([GitHub Repo](https://github.com/Nana-Safo-Duker/Bioinformatics_PrecisionMedicine-Portfolio)).
 
 ---
 
 ## Repository Layout
 
 ```
-AI-ML-Bioinformatics_-_Precision-Medicine/
+Bioinformatics_PrecisionMedicine-Portfolio/
 ├── <Project Folder 1>/          # End-to-end workflow (code, notebooks, docs, data placeholder)
 ├── <Project Folder 2>/
-├── ... (8 total projects)
-├── README.md                    # This portfolio guide
-└── utility scripts (*.ps1)      # Local helper scripts (left untouched)
+├── ... (7 total projects)
+└── README.md                    # This portfolio guide
 ```
 
 Every project follows a consistent pattern:
@@ -83,8 +82,8 @@ Every project follows a consistent pattern:
 
 1. **Clone once** to access all projects:
    ```bash
-   git clone https://github.com/Nana-Safo-Duker/AI-ML-Bioinformatics_-_Precision-Medicine.git
-   cd AI-ML-Bioinformatics_-_Precision-Medicine
+   git clone https://github.com/Nana-Safo-Duker/Bioinformatics_PrecisionMedicine-Portfolio.git
+   cd Bioinformatics_PrecisionMedicine-Portfolio
    ```
 2. **Select a project** from the capsules below and read its local `README.md` plus any `docs/` supplements.
 3. **Create an environment**:
@@ -118,7 +117,7 @@ Every project follows a consistent pattern:
 
 ### 2. DNA-Based Biomarker Discovery and Computational Drug Target Identification
 - **Problem statement:** engineer interpretable DNA features to pinpoint biomarker candidates and drug targets.
-- **Highlights:** exhaustive feature engineering (GC/AT skew, dinucleotide/trinucleotide spectra, Shannon entropy, homopolymer runs), mirrored Python/R scripts, cross-validation, ROC/feature-importance plots, `top_biomarkers.csv`.
+- **Highlights:** exhaustive feature engineering (GC/AT skew, dinucleotide/trinucleotide spectra, Shannon entropy, homopolymer runs), mirrored Python/R scripts, cross-validation, ROC/feature-importance plots, `feature_importance.csv`.
 - **Key assets:** `scripts/dna_feature_extraction.*`, `scripts/dna_ml_pipeline.*`, `results/figures/`, notebooks in both languages, Conda and pip lock files.
 - **Use cases:** early drug discovery, biomarker prioritization, companion diagnostic research.
 
@@ -152,10 +151,76 @@ Every project follows a consistent pattern:
 - **Key assets:** `scripts/python/tf_binding_prediction.py`, `scripts/r/tf_binding_prediction.R`, `notebooks/python/tf_binding_prediction.ipynb`, `results/`.
 - **Use cases:** enhancer mapping, TF motif discovery, regulatory circuit modeling.
 
-### 8. Functional Annotation and Coding Potential Prediction of Genomic Sequences
-- **Problem statement:** (Scaffold) establish space for coding-potential and functional annotation models (e.g., CPC2-style ORF assessment, RNA coding potential).
-- **Current state:** folder contains `models/` and `results/` staging areas awaiting scripts, notebooks, and documentation.
-- **Next steps:** add sequence parsing utilities, ORF feature extraction, CNN/RNN evaluators, and benchmarking notebooks; document methodology to align with other projects.
+---
+
+## Visualization Gallery
+
+Each project ships showcase figures under `docs/images/` (committed for GitHub rendering). Full run outputs also land in that project's `results/` folder.
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 1. Mutation Impact & Pathogenicity
+
+[![Mutation impact dashboard](AI-Driven%20Mutation%20Impact%20and%20Pathogenicity%20Prediction%20Using%20Genomic%20Variants/docs/images/model_comparison.png)](AI-Driven%20Mutation%20Impact%20and%20Pathogenicity%20Prediction%20Using%20Genomic%20Variants/README.md#visualizations)
+
+</td>
+<td width="50%" valign="top">
+
+### 2. DNA Biomarker Discovery
+
+[![DNA biomarker ROC](DNA-Based%20Biomarker%20Discovery%20and%20Computational%20Drug%20Target%20Identification/docs/images/roc_curves.png)](DNA-Based%20Biomarker%20Discovery%20and%20Computational%20Drug%20Target%20Identification/README.md#visualizations)
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 3. Genome-Wide SNP Analysis
+
+[![Variant distributions](Genome-Wide%20SNP%20Analysis%20for%20Genetic%20Variant%20and%20Disease%20Association%20Mapping/docs/images/variant_distributions.png)](Genome-Wide%20SNP%20Analysis%20for%20Genetic%20Variant%20and%20Disease%20Association%20Mapping/README.md#visualizations)
+
+</td>
+<td width="50%" valign="top">
+
+### 4. Genomic Data Integration
+
+[![ML model comparison](Genomic%20Data%20Integration%20and%20Analysis%20Pipeline/docs/images/ml_model_comparison.png)](Genomic%20Data%20Integration%20and%20Analysis%20Pipeline/README.md#visualizations)
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 5. Regulatory Element Identification
+
+[![Regulatory ROC](Identification%20and%20Characterization%20of%20Regulatory%20Elements%20in%20the%20Human%20Genome/docs/images/roc_curves.png)](Identification%20and%20Characterization%20of%20Regulatory%20Elements%20in%20the%20Human%20Genome/README.md#visualizations)
+
+</td>
+<td width="50%" valign="top">
+
+### 6. Gene Expression Modeling
+
+[![Gene expression comparison](Integrative%20Gene%20Expression%20Modeling%20from%20DNA%20Sequence%20Features/docs/images/model_comparison.png)](Integrative%20Gene%20Expression%20Modeling%20from%20DNA%20Sequence%20Features/README.md#visualizations)
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 7. TF Binding Site Prediction
+
+[![TF binding ROC](Predictive%20Modeling%20of%20Transcription%20Factor%20Binding%20Sites%20Using%20Deep%20Learning/docs/images/roc_curves.png)](Predictive%20Modeling%20of%20Transcription%20Factor%20Binding%20Sites%20Using%20Deep%20Learning/README.md#visualizations)
+
+</td>
+<td width="50%" valign="top">
+
+Open any project README for the full set of figures (EDA panels, confusion matrices, feature importance, motif enrichment, and more).
+
+</td>
+</tr>
+</table>
 
 ---
 
@@ -185,7 +250,7 @@ Integrate these hooks into CI pipelines (e.g., GitHub Actions) by executing note
 
 1. **Add a new modality:** copy the structure of an existing folder (data, notebooks, scripts, results, docs) to onboard additional omics layers (proteomics, metabolomics, single-cell RNA-seq).
 2. **Share utilities:** factor reusable encoders and evaluation helpers into a `common/` package; import them via relative paths or pip-installable package for consistency.
-3. **Automate metadata:** reuse `update_repo_metadata.*` PowerShell/Bash helpers (present at repo root) to keep GitHub descriptions and websites in sync across sibling repositories.
+3. **Automate metadata:** maintain a small PowerShell/Bash helper script (added at the repo root) to keep GitHub descriptions and websites in sync across sibling repositories.
 4. **Document reproducibility:** include `PROJECT_SUMMARY.md` and `SETUP_GUIDE.md` files similar to the mutation and biomarker projects to describe datasets, hyperparameters, and validation cohorts.
 5. **Benchmark additions:** whenever introducing a new model, add evaluation plots to `results/` and update this README’s relevant capsule to maintain reader clarity.
 
@@ -203,7 +268,7 @@ Integrate these hooks into CI pipelines (e.g., GitHub Actions) by executing note
 
 ## Roadmap
 
-- [ ] Populate the coding-potential project with preprocessing scripts, modeling notebooks, and evaluation reports.
+- [ ] Add a new functional annotation / coding-potential project (e.g., CPC2-style ORF assessment, RNA coding potential) with preprocessing scripts, modeling notebooks, and evaluation reports.
 - [ ] Harmonize dataset license declarations and add explicit source citations across all subprojects.
 - [ ] Factor shared utilities (sequence encoders, visualization helpers, model evaluators) into a reusable `common/` package.
 - [ ] Add automated testing workflows (GitHub Actions) for linting, notebook smoke tests, and environment validation.
